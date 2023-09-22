@@ -13,6 +13,8 @@ class Camera {
   direction: vec3 = vec3.create();
   target: vec3 = vec3.create();
   up: vec3 = vec3.create();
+  origEye: vec3;
+  origCenter: vec3;
 
   constructor(position: vec3, target: vec3) {
     this.controls = CameraControls(document.getElementById('canvas'), {
@@ -21,6 +23,8 @@ class Camera {
     });
     vec3.add(this.target, this.position, this.direction);
     mat4.lookAt(this.viewMatrix, this.controls.eye, this.controls.center, this.controls.up);
+    this.origEye = position;
+    this.origCenter = target;
   }
 
   setAspectRatio(aspectRatio: number) {
@@ -36,6 +40,16 @@ class Camera {
     vec3.add(this.target, this.position, this.direction);
     mat4.lookAt(this.viewMatrix, this.controls.eye, this.controls.center, this.controls.up);
   }
+
+  reset() {
+    this.controls = CameraControls(document.getElementById('canvas'), {
+      eye: this.origEye,
+      center: this.origCenter,
+    });
+    vec3.add(this.target, this.position, this.direction);
+    mat4.lookAt(this.viewMatrix, this.controls.eye, this.controls.center, this.controls.up);
+  }
+
 };
 
 export default Camera;
