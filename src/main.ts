@@ -45,7 +45,7 @@ function loadScene() {
   ground.create();
   sea = new Square(vec3.fromValues(-3, -3, -14), vec2.fromValues(20, 5));
   sea.create();
-  fakeSky = new Icosphere(vec3.fromValues(-3, 0, -10), 20, controls.tesselations);
+  fakeSky = new Icosphere(vec3.fromValues(0, 0, -10), 20, controls.tesselations);
   fakeSky.create();
 }
 
