@@ -1,8 +1,8 @@
-# [Project 1: Noise](https://github.com/CIS-566-Fall-2022/hw01-fireball-base)
-![](sc.gif)
+# [Project 1: Noise]
+
 ## Link to live demo
 https://xchennnw.github.io/hw01-fireball/
-
+![](sc.gif)
 
 ## Objective
 
